@@ -6,6 +6,7 @@
 //  Copyright © 2016 Toshihiro Morimoto. All rights reserved.
 //
 
+#import <AppKit/AppKit.h>
 #import "DVTDeviceManager+Anglerfish.h"
 #import "DVTDevice.h"
 #import "Anglerfish-Swift.h"
@@ -15,6 +16,10 @@
 - (void)af_didBecomeActiveDeviceForRunContext:(id)arg1 {
     SimulatorHistoryManager *manager = SimulatorHistoryManager.sharedInstance;
     [manager update:self.identifier];
+    
+    // send reload notification
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"DVTDeviceUsabilityDidChangeNotification"
+                                                        object:nil];
     
     [self af_didBecomeActiveDeviceForRunContext:arg1];
 }
