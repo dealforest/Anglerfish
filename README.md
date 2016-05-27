@@ -2,7 +2,9 @@
 
 ## Feature
 
-sort the recently used simulators
+- [x] Sort the recently used simulators
+- [ ] Toggle on/off of the sort
+- [ ] Switch the device and simulator
 
 ## Usage
 
